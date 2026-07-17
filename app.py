@@ -275,6 +275,7 @@ def clean_payload(data: dict) -> dict:
         "contact_name",
         "contact_email",
         "contact_phone",
+        "proposal_recipient_email",
         "notes",
     ]
     cleaned = {k: str(data.get(k, "")).strip()[:1500] for k in fields}
@@ -282,6 +283,9 @@ def clean_payload(data: dict) -> dict:
         raise ValueError("A valid U.S. ZIP code is required.")
     if not cleaned["practice_area"]:
         cleaned["practice_area"] = "Personal Injury"
+    # Where the finished plan should be sent — defaults to the contact email.
+    if not cleaned["proposal_recipient_email"]:
+        cleaned["proposal_recipient_email"] = cleaned["contact_email"]
     return cleaned
 
 
