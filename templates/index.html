@@ -203,7 +203,10 @@
           method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(data)
         });
         const json = await res.json();
-        if(!json.ok){ throw new Error(json.error || 'Something went wrong.'); }
+        if(!json.ok){
+          const detail = json.detail ? '<br><small style="opacity:.8">'+json.detail+'</small>' : '';
+          throw new Error((json.error || 'Something went wrong.') + detail);
+        }
         renderResult(json);
         statusEl.className='status';
       } catch(err){
