@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart 1 Marketing — Legal Conquesting Market Plan</title>
+  <style>
+    :root{
+      --navy:#1A2E58; --blue:#28477F; --gold:#B8892B; --gold-2:#d1a542;
+      --ink:#25364b; --muted:#687386; --line:#dfe3ea; --mist:#f2f5fa; --white:#fff;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      color:var(--ink);background:linear-gradient(180deg,#0f1c38 0%,#1A2E58 40%,#26365c 100%);min-height:100vh}
+    .wrap{max-width:960px;margin:0 auto;padding:32px 20px 64px}
+    header{text-align:center;color:#fff;margin-bottom:26px}
+    .eyebrow{letter-spacing:.16em;font-size:12px;font-weight:700;color:var(--gold-2);text-transform:uppercase}
+    header h1{font-size:30px;margin:8px 0 6px;font-weight:800;line-height:1.15}
+    header p{color:#c8d2e6;margin:0 auto;max-width:640px;font-size:15px}
+    .card{background:#fff;border-radius:16px;box-shadow:0 24px 60px rgba(9,18,40,.35);overflow:hidden}
+    .card-head{background:var(--navy);color:#fff;padding:20px 26px;display:flex;align-items:center;gap:12px}
+    .badge{background:var(--gold);color:#231a06;font-weight:800;font-size:11px;letter-spacing:.05em;
+      padding:5px 10px;border-radius:999px;text-transform:uppercase}
+    .card-head h2{margin:0;font-size:17px;font-weight:700}
+    form{padding:24px 26px}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px 18px}
+    .full{grid-column:1/-1}
+    label{display:block;font-size:12.5px;font-weight:700;color:var(--navy);margin:0 0 5px}
+    .req{color:var(--gold)}
+    input,select,textarea{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:9px;
+      font-size:14px;color:var(--ink);background:#fdfefe;font-family:inherit}
+    input:focus,select:focus,textarea:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(40,71,127,.12)}
+    textarea{resize:vertical;min-height:70px}
+    .hint{font-size:11.5px;color:var(--muted);margin-top:4px}
+    .checks{display:grid;grid-template-columns:1fr 1fr;gap:8px 14px;margin-top:4px}
+    .checks label{display:flex;align-items:center;gap:8px;font-weight:500;color:var(--ink);font-size:13px;margin:0}
+    .checks input{width:auto}
+    .actions{margin-top:22px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+    button{background:linear-gradient(90deg,var(--gold) 0%,var(--gold-2) 100%);color:#231a06;border:none;
+      padding:14px 26px;font-size:15px;font-weight:800;border-radius:10px;cursor:pointer;letter-spacing:.02em}
+    button:disabled{opacity:.6;cursor:not-allowed}
+    .note{font-size:12px;color:var(--muted)}
+    .status{margin-top:18px;font-size:14px;display:none}
+    .status.show{display:block}
+    .spinner{display:inline-block;width:16px;height:16px;border:2px solid #cdd6e6;border-top-color:var(--blue);
+      border-radius:50%;animation:spin .8s linear infinite;vertical-align:middle;margin-right:8px}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    .result{display:none;margin-top:22px;background:var(--mist);border:1px solid var(--line);border-radius:12px;padding:20px}
+    .result.show{display:block}
+    .result h3{margin:0 0 6px;color:var(--navy);font-size:18px}
+    .stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:14px 0}
+    .stat{background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px;text-align:center}
+    .stat b{display:block;font-size:18px;color:var(--navy)}
+    .stat span{font-size:10.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+    .chips{display:flex;flex-wrap:wrap;gap:7px;margin:10px 0}
+    .chip{background:#fff;border:1px solid var(--line);border-radius:999px;padding:5px 12px;font-size:12px;color:var(--navy)}
+    .pkg{background:var(--navy);color:#fff;border-radius:10px;padding:14px 16px;margin:12px 0}
+    .pkg b{color:var(--gold-2)}
+    .dl{display:inline-block;margin-top:12px;background:var(--navy);color:#fff;text-decoration:none;
+      padding:11px 18px;border-radius:9px;font-weight:700;font-size:14px}
+    .err{color:#a11;background:#fdecec;border:1px solid #f4caca;padding:12px 14px;border-radius:9px;font-size:13.5px}
+    footer{text-align:center;color:#9fb0cd;font-size:12px;margin-top:26px}
+    @media(max-width:640px){.grid,.stat-row,.checks{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="eyebrow">Smart 1 Marketing</div>
+      <h1>Legal Conquesting Market Plan</h1>
+      <p>Digital Out-of-Home “Smart Signage,” high-intent geofencing, and mobile retargeting — built to
+        drive high-intent legal leads instead of paying a flat fee for empty billboard impressions.</p>
+    </header>
+
+    <div class="card">
+      <div class="card-head">
+        <span class="badge">Free Plan</span>
+        <h2>Tell us about the firm — we'll build the plan</h2>
+      </div>
+      <form id="legalForm">
+        <div class="grid">
+          <div>
+            <label>Firm Name <span class="req">*</span></label>
+            <input name="firm_name" required placeholder="e.g. Morgan & Associates" />
+          </div>
+          <div>
+            <label>Website</label>
+            <input name="website" placeholder="https://" />
+          </div>
+          <div>
+            <label>Primary Practice Area <span class="req">*</span></label>
+            <select name="practice_area" required>
+              <option value="Personal Injury">Personal Injury</option>
+              <option value="Auto Accident">Auto Accident</option>
+              <option value="Criminal Defense">Criminal Defense</option>
+              <option value="DUI / DWI">DUI / DWI</option>
+              <option value="Family Law / Divorce">Family Law / Divorce</option>
+              <option value="Workers' Compensation">Workers' Compensation</option>
+              <option value="Mass Tort / Class Action">Mass Tort / Class Action</option>
+              <option value="Medical Malpractice">Medical Malpractice</option>
+              <option value="Employment / Labor">Employment / Labor</option>
+              <option value="Immigration">Immigration</option>
+              <option value="Estate / Probate / Elder Law">Estate / Probate / Elder Law</option>
+              <option value="Bankruptcy">Bankruptcy</option>
+            </select>
+          </div>
+          <div>
+            <label>Firm ZIP Code <span class="req">*</span></label>
+            <input name="firm_zip" required inputmode="numeric" pattern="\d{5}(-\d{4})?" placeholder="e.g. 33101" />
+            <div class="hint">We derive the city, region, and local targets from this.</div>
+          </div>
+          <div>
+            <label>Target Radius</label>
+            <select name="target_radius">
+              <option value="15 miles">15 miles</option>
+              <option value="25 miles" selected>25 miles</option>
+              <option value="40 miles">40 miles</option>
+              <option value="60 miles">60 miles</option>
+              <option value="Countywide">Countywide</option>
+              <option value="Statewide">Statewide</option>
+            </select>
+          </div>
+          <div>
+            <label>Primary Goal</label>
+            <input name="primary_goal" placeholder="e.g. More signed injury cases / consultations" />
+          </div>
+
+          <div class="full">
+            <label>Secondary Practice Areas (optional)</label>
+            <div class="checks">
+              <label><input type="checkbox" class="sec" value="Personal Injury"> Personal Injury</label>
+              <label><input type="checkbox" class="sec" value="Auto Accident"> Auto Accident</label>
+              <label><input type="checkbox" class="sec" value="Criminal Defense"> Criminal Defense</label>
+              <label><input type="checkbox" class="sec" value="DUI / DWI"> DUI / DWI</label>
+              <label><input type="checkbox" class="sec" value="Family Law / Divorce"> Family Law / Divorce</label>
+              <label><input type="checkbox" class="sec" value="Workers' Compensation"> Workers' Comp</label>
+              <label><input type="checkbox" class="sec" value="Mass Tort / Class Action"> Mass Tort</label>
+              <label><input type="checkbox" class="sec" value="Medical Malpractice"> Medical Malpractice</label>
+            </div>
+          </div>
+
+          <div>
+            <label>Contact Name <span class="req">*</span></label>
+            <input name="contact_name" required />
+          </div>
+          <div>
+            <label>Contact Email <span class="req">*</span></label>
+            <input name="contact_email" type="email" required />
+          </div>
+          <div>
+            <label>Contact Phone</label>
+            <input name="contact_phone" />
+          </div>
+          <div>
+            <label>Monthly Budget In Mind (optional)</label>
+            <input name="notes_budget" placeholder="e.g. $5,000/mo" />
+          </div>
+          <div class="full">
+            <label>Anything else we should know?</label>
+            <textarea name="notes" placeholder="Signature cases, competitors to conquest, no-go zones, etc."></textarea>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button type="submit" id="submitBtn">Build My Legal Conquesting Plan</button>
+          <span class="note">No cost, no obligation. Plan generated in ~30 seconds.</span>
+        </div>
+
+        <div class="status" id="status"></div>
+      </form>
+
+      <div style="padding:0 26px 26px">
+        <div class="result" id="result"></div>
+      </div>
+    </div>
+
+    <footer>© Smart 1 Marketing · Estimates are AI planning projections for marketing use, not audited counts.</footer>
+  </div>
+
+  <script>
+    const form = document.getElementById('legalForm');
+    const statusEl = document.getElementById('status');
+    const resultEl = document.getElementById('result');
+    const btn = document.getElementById('submitBtn');
+
+    function fmt(n){ return (n==null)?'—':Number(n).toLocaleString('en-US'); }
+    function rng(a,b){ return fmt(a)+'–'+fmt(b); }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      resultEl.classList.remove('show'); resultEl.innerHTML='';
+      statusEl.className='status show';
+      statusEl.innerHTML='<span class="spinner"></span> Building your DOOH + mobile conquesting plan…';
+      btn.disabled = true;
+
+      const data = Object.fromEntries(new FormData(form).entries());
+      const sec = Array.from(document.querySelectorAll('.sec:checked')).map(c=>c.value);
+      data.secondary_practice_areas = sec.join(', ');
+      if (data.notes_budget) data.notes = (data.notes? data.notes+' | ':'') + 'Budget in mind: ' + data.notes_budget;
+
+      try {
+        const res = await fetch('/api/analyze', {
+          method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(data)
+        });
+        const json = await res.json();
+        if(!json.ok){ throw new Error(json.error || 'Something went wrong.'); }
+        renderResult(json);
+        statusEl.className='status';
+      } catch(err){
+        statusEl.className='status show';
+        statusEl.innerHTML='<div class="err">'+ (err.message||'Request failed.') +'</div>';
+      } finally {
+        btn.disabled = false;
+      }
+    });
+
+    function renderResult(json){
+      const r = json.report || {};
+      const m = r.market_profile || {};
+      const rp = r.recommended_package || {};
+      const chans = (r.media_channels||[]).map(c=>'<span class="chip">'+c+'</span>').join('');
+      const cvl = (m.case_volume_label||'Est. Annual Cases');
+      let html = '';
+      html += '<h3>'+ (r.market_type||'Your Market Plan') +'</h3>';
+      html += '<p style="margin:2px 0 0;color:#687386;font-size:13px">'+ (r.market_summary||'') +'</p>';
+      html += '<div class="stat-row">'+
+        '<div class="stat"><b>'+rng(m.estimated_population_low,m.estimated_population_high)+'</b><span>Population</span></div>'+
+        '<div class="stat"><b>'+rng(m.estimated_households_low,m.estimated_households_high)+'</b><span>Households</span></div>'+
+        '<div class="stat"><b>'+rng(m.estimated_annual_cases_low,m.estimated_annual_cases_high)+'</b><span>'+cvl+'</span></div>'+
+      '</div>';
+      html += '<div class="pkg"><b>'+ (rp.monthly_investment||'') +' — '+ (rp.package_name||'') +'</b><br>'+
+              '<span style="font-size:13px;color:#c8d2e6">'+ (rp.description||'') +'</span></div>';
+      html += '<div class="chips">'+chans+'</div>';
+      if (json.report_pdf_url){
+        html += '<a class="dl" href="'+json.report_pdf_url+'" target="_blank" rel="noopener">⬇ Download Full Proposal PDF</a>';
+      }
+      resultEl.innerHTML = html;
+      resultEl.classList.add('show');
+    }
+  </script>
+</body>
+</html>
